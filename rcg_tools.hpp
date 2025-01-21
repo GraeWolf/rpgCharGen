@@ -2,6 +2,7 @@
 #define RCG_TOOLS_H
 
 #include "random_mt.hpp"
+#include <vector>
 
 class RCG_Tools 
 {
@@ -11,6 +12,8 @@ private:
 public:
     enum Sides {three = 1, four, six, eight, ten, twelve, twenty, percentile};
     int roll(Sides dieType);
+    std::vector<int> stat_generator();
+
     
 };
 

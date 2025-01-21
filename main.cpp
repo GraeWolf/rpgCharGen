@@ -19,8 +19,14 @@ int main()
         switch (choice)
         {
             case 1:
-                std::cout << tools.roll(RCG_Tools::Sides::six) << "\n";
-                break;
+                {
+                    std::vector<int> stats {tools.stat_generator()};
+                    for (size_t i{}; i < 6; ++i)
+                    {
+                        std::cout << stats.at(i) << "\n";
+                    }
+                    break;
+                }
             case 2:
                 isRunning = false;
                 break;

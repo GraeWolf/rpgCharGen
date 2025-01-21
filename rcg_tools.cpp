@@ -1,5 +1,4 @@
 #include "rcg_tools.hpp"
-#include <iostream>
 
 int RCG_Tools::roll(Sides dieType)
 {
@@ -33,4 +32,16 @@ int RCG_Tools::roll(Sides dieType)
 
     }
     return rolled_number;
+}
+
+std::vector<int> RCG_Tools::stat_generator()
+{
+    int total{};
+    std::vector<int> stats {};
+    for (size_t i{}; i < 6; ++i)
+    {
+        total = RCG_Tools::roll(six) + RCG_Tools::roll(six) + RCG_Tools::roll(six);
+        stats.push_back(total);
+    }
+    return stats;
 }
