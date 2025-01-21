@@ -1,11 +1,13 @@
 #include <iostream>
 #include "rcg_tools.hpp"
+#include "character_sheet.hpp"
 
 
 int main()
 {
 
     RCG_Tools tools;
+    CharacterSheet player;
     bool isRunning = true;
     while (isRunning)
     {
@@ -24,6 +26,11 @@ int main()
                     for (size_t i{}; i < 6; ++i)
                     {
                         std::cout << stats.at(i) << "\n";
+                    }
+                    player.setStatModifiers(stats);
+                    for (size_t i{}; i < stats.size(); ++i)
+                    {
+                        std::cout << player.getStatModifiers().at(i) << "\n"; 
                     }
                     break;
                 }
