@@ -1,11 +1,11 @@
 #include <iostream>
-#include "dice.hpp"
+#include "rcg_tools.hpp"
 
 
 int main()
 {
 
-    Dice die;
+    RCG_Tools tools;
     bool isRunning = true;
     while (isRunning)
     {
@@ -16,13 +16,10 @@ int main()
         int choice{};
         std::cin >> choice;
 
-        int temp{};
-
         switch (choice)
         {
             case 1:
-                temp = die.roll(Dice::Sides::six, 3);
-                std::cout << temp << "\n";
+                std::cout << tools.roll(RCG_Tools::Sides::six) << "\n";
                 break;
             case 2:
                 isRunning = false;
