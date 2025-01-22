@@ -12,7 +12,6 @@ void CharacterSheet::setSavingThrows()
 
 void CharacterSheet::setStatModifiers(std::vector<int>& stats)
 {
-    std::cout << "stat size is " << stats.size() << "\n";
     for (size_t i{}; i < stats.size(); ++i)
     {
         if (stats.at(i) == 18) {
@@ -44,9 +43,44 @@ void CharacterSheet::setCharacterName(std::string name)
     m_characterName = name;
 }
 
-void CharacterSheet::setCharacterClass(std::string charClass)
+void CharacterSheet::setCharacterClass(int choice, std::vector<int>& stats)
 {
-    m_characterClass = charClass;
+    switch (choice)
+    {
+        case 1:
+            if (stats.at(2) >= 9) {
+                m_characterClass = "Cleric";
+            }
+            else {
+                std::cout << "Your Wisdom is not high enough for Cleric\n";
+            }
+            break;
+        case 2:
+            if (stats.at(0) >= 9) {
+               m_characterClass = "Fighter";
+            }
+            else {
+                std::cout << "Your Strength is not high enough for Fighter\n";
+            }
+            break;
+        case 3:
+            if (stats.at(1) >=9) {
+               m_characterClass = "Magic-User";
+            }
+            else {
+                std::cout << "Your Intelligence is not high enough for Magic-User\n";
+            }
+            break;
+        case 4:
+            if (stats.at(3) >= 9) {
+               m_characterClass = "Theif";
+            }
+            else {
+                std::cout << "Your Dexterity is not high enough for Theif\n";
+            }
+            break;
+    }
+    
 }
 
 void CharacterSheet::setCharacterRace(std::string race)
@@ -79,5 +113,10 @@ void CharacterSheet::setMoney()
 std::vector<int> CharacterSheet::getStatModifiers() 
 {
     return {m_statModifiers.begin(), m_statModifiers.end()};
+}
+
+std::string CharacterSheet::getCharacterClass()
+{
+    return m_characterClass;
 }
 

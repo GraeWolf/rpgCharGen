@@ -27,7 +27,7 @@ public:
     void setStatModifiers(std::vector<int>& stats);
 
     void setCharacterName(std::string name);
-    void setCharacterClass(std::string charClass);
+    void setCharacterClass(int choice, std::vector<int>& stats);
     void setCharacterRace(std::string race);
 
     void setCharacterLevel();
@@ -37,6 +37,7 @@ public:
     void setMoney();
 
     std::vector<int> getStatModifiers();
+    std::string getCharacterClass();
 
 };
 

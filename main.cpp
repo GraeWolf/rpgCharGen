@@ -23,15 +23,24 @@ int main()
             case 1:
                 {
                     std::vector<int> stats {tools.stat_generator()};
-                    for (size_t i{}; i < 6; ++i)
-                    {
-                        std::cout << stats.at(i) << "\n";
-                    }
                     player.setStatModifiers(stats);
+                    std::vector<std::string> statNames {"STR", "INT", "WIS", "DEX", "CON", "CHA"};
+
                     for (size_t i{}; i < stats.size(); ++i)
                     {
-                        std::cout << player.getStatModifiers().at(i) << "\n"; 
+                        std::cout << statNames.at(i) << "    " 
+                            << stats.at(i) << "    " << player.getStatModifiers().at(i) << "\n"; 
                     }
+                    int classChoice{};
+                    std::cout << "Please choose a class \n";
+                    std::cout << "1. Cleric\n";
+                    std::cout << "2. Fighter\n";
+                    std::cout << "3. Magic-User\n";
+                    std::cout << "4. Theif\n";
+
+                    std::cin >> classChoice;
+                    player.setCharacterClass(classChoice, stats);
+                    std::cout << "Your Class is " << player.getCharacterClass() << "\n";
                     break;
                 }
             case 2:
