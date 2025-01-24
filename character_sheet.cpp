@@ -43,9 +43,9 @@ void CharacterSheet::setCharacterName(std::string name)
     m_characterName = name;
 }
 
-void CharacterSheet::setCharacterClass(int choice, std::vector<int>& stats)
+void CharacterSheet::setCharacterClass(int classMenuChoice, const std::vector<int>& stats)
 {
-    switch (choice)
+    switch (classMenuChoice)
     {
         case 1:
             if (stats.at(2) >= 9) {
