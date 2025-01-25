@@ -29,7 +29,7 @@ public:
 
     void setCharacterName(std::string name);
     void setCharacterClass();
-    void setCharacterRace(std::string race);
+    void setCharacterRace();
 
     void setCharacterLevel();
     void setArmorClass();

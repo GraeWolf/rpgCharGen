@@ -25,6 +25,7 @@ int main()
                     player.setCharacterStats(tools.stat_generator());
                     player.setStatModifiers(player.getCharacterStats());
                     player.setCharacterClass();
+                    player.setCharacterRace();
                     
 
                     break;
