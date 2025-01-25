@@ -203,7 +203,29 @@ void CharacterSheet::setArmorClass()
 void CharacterSheet::setHitPoints()
 {
     if (m_characterClass == "Cleric")
-        m_hitPoints = 
+    {
+        m_hitPoints = RCG_Tools::roll(1, 6) + m_statModifiers.at(4);
+        if (m_hitPoints < 0)
+            m_hitPoints = 1;
+    }
+    else if (m_characterClass == "Fighter")
+    {
+        m_hitPoints = RCG_Tools::roll(1, 8) + m_statModifiers.at(4);
+        if (m_hitPoints < 0)
+            m_hitPoints = 1;
+    }
+    else if (m_characterClass == "Magic-User")
+    {
+        m_hitPoints = RCG_Tools::roll(1, 4) + m_statModifiers.at(4);
+        if (m_hitPoints < 0)
+            m_hitPoints = 1;
+    }
+    else if (m_characterClass == "Theif")
+    {
+        m_hitPoints = RCG_Tools::roll(1, 4) + m_statModifiers.at(4);
+        if (m_hitPoints < 0)
+            m_hitPoints = 1;
+    }
 }
 void CharacterSheet::setAttackBonus()
 {
@@ -212,7 +234,7 @@ void CharacterSheet::setAttackBonus()
 
 void CharacterSheet::setMoney()
 {
-
+    m_money = (RCG_Tools::roll(1, 6) + RCG_Tools::roll(1, 6) + RCG_Tools::roll(1, 6)) * 10;
 }
 
 std::vector<int> CharacterSheet::getStatModifiers() 

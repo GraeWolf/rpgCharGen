@@ -5,6 +5,7 @@
 #include <string>
 #include <iostream>
 #include <functional>
+#include "rcg_tools.hpp"
 
 class CharacterSheet
 {
