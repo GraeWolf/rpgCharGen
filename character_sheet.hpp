@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <functional>
 
 class CharacterSheet
 {
@@ -41,6 +42,7 @@ public:
     std::vector<int> getCharacterStats();
 
     void displayStats();
+    void confirmation(bool& choice);
 
 };
 

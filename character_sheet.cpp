@@ -56,14 +56,16 @@ void CharacterSheet::setCharacterClass()
         std::cout << "2. Fighter\n";
         std::cout << "3. Magic-User\n";
         std::cout << "4. Theif\n";
-        std::cout << "5. Finish Choosing.\n";
 
         std::cin >> classMenuChoice;
-    
+        
         switch (classMenuChoice)
         {
             case 1:
                 if (m_characterStats.at(2) >= 9) {
+                    std::cout << "You have chosen Cleric\n";
+                    CharacterSheet::confirmation(choosingClass);
+
                     m_characterClass = "Cleric";
                 }
                 else {
@@ -157,3 +159,21 @@ void CharacterSheet::displayStats()
 
 }
 
+void CharacterSheet::confirmation(bool& choice)
+{
+    std::cout << "Are you sure\n";
+    std::cout << "1. Yes\n";
+    std::cout << "2. No\n";
+
+    int confirmationChoice{};
+    std::cin >> confirmationChoice;
+
+    switch (confirmationChoice)
+    {
+        case 1:
+            choice = false;
+            break;
+        case 2:
+            break;
+    }
+}
