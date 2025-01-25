@@ -22,9 +22,9 @@ private:
     int m_attackBonus{};
     int m_money{};
 public:
-    void setCharacterStats(std::vector<int>& stats);
+    void setCharacterStats(const std::vector<int>& stats);
     void setSavingThrows();
-    void setStatModifiers(std::vector<int>& stats);
+    void setStatModifiers(const std::vector<int>& stats);
 
     void setCharacterName(std::string name);
     void setCharacterClass(int classMenuChoice, const std::vector<int>& stats);
@@ -38,6 +38,9 @@ public:
 
     std::vector<int> getStatModifiers();
     std::string getCharacterClass();
+    std::vector<int> getCharacterStats();
+
+    void displayStats();
 
 };
 

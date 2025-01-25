@@ -1,6 +1,6 @@
 #include "character_sheet.hpp"
 
-void CharacterSheet::setCharacterStats(std::vector<int>& stats)
+void CharacterSheet::setCharacterStats(const std::vector<int>& stats)
 {
     m_characterStats = stats;
 }
@@ -10,7 +10,7 @@ void CharacterSheet::setSavingThrows()
 
 }
 
-void CharacterSheet::setStatModifiers(std::vector<int>& stats)
+void CharacterSheet::setStatModifiers(const std::vector<int>& stats)
 {
     for (size_t i{}; i < stats.size(); ++i)
     {
@@ -118,5 +118,22 @@ std::vector<int> CharacterSheet::getStatModifiers()
 std::string CharacterSheet::getCharacterClass()
 {
     return m_characterClass;
+}
+
+std::vector<int> CharacterSheet::getCharacterStats()
+{
+    return m_characterStats;
+}
+
+void CharacterSheet::displayStats()
+{
+    std::vector<std::string> statNames {"STR", "INT", "WIS", "DEX", "CON", "CHA"};
+
+    for (size_t i{}; i < m_characterStats.size(); ++i)
+    {
+        std::cout << statNames.at(i) << "    " 
+        << m_characterStats.at(i) << "    " << m_statModifiers.at(i) << "\n"; 
+    } 
+
 }
 

@@ -22,15 +22,10 @@ int main()
         {
             case 1:
                 {
-                    std::vector<int> stats {tools.stat_generator()};
-                    player.setStatModifiers(stats);
-                    std::vector<std::string> statNames {"STR", "INT", "WIS", "DEX", "CON", "CHA"};
+                    player.setCharacterStats(tools.stat_generator());
+                    player.setStatModifiers(player.getCharacterStats());
 
-                    for (size_t i{}; i < stats.size(); ++i)
-                    {
-                        std::cout << statNames.at(i) << "    " 
-                            << stats.at(i) << "    " << player.getStatModifiers().at(i) << "\n"; 
-                    }
+                    player.displayStats();
                     
                     int classMenuChoice{};
                     bool choosingClass = true;
@@ -46,7 +41,7 @@ int main()
                         std::cin >> classMenuChoice;
                         if (classMenuChoice == 5)
                             choosingClass = false;
-                        player.setCharacterClass(classMenuChoice, stats);
+                        player.setCharacterClass(classMenuChoice, player.getStatModifiers());
                     }
 
                     std::cout << "Your Class is " << player.getCharacterClass() << "\n";
