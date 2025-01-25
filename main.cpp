@@ -24,27 +24,9 @@ int main()
                 {
                     player.setCharacterStats(tools.stat_generator());
                     player.setStatModifiers(player.getCharacterStats());
-
-                    player.displayStats();
+                    player.setCharacterClass();
                     
-                    int classMenuChoice{};
-                    bool choosingClass = true;
-                    while (choosingClass)
-                    {
-                        std::cout << "Please choose a class \n";
-                        std::cout << "1. Cleric\n";
-                        std::cout << "2. Fighter\n";
-                        std::cout << "3. Magic-User\n";
-                        std::cout << "4. Theif\n";
-                        std::cout << "5. Finish Choosing.\n";
 
-                        std::cin >> classMenuChoice;
-                        if (classMenuChoice == 5)
-                            choosingClass = false;
-                        player.setCharacterClass(classMenuChoice, player.getStatModifiers());
-                    }
-
-                    std::cout << "Your Class is " << player.getCharacterClass() << "\n";
                     break;
                 }
             case 2:

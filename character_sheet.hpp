@@ -27,7 +27,7 @@ public:
     void setStatModifiers(const std::vector<int>& stats);
 
     void setCharacterName(std::string name);
-    void setCharacterClass(int classMenuChoice, const std::vector<int>& stats);
+    void setCharacterClass();
     void setCharacterRace(std::string race);
 
     void setCharacterLevel();

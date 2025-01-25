@@ -43,43 +43,63 @@ void CharacterSheet::setCharacterName(std::string name)
     m_characterName = name;
 }
 
-void CharacterSheet::setCharacterClass(int classMenuChoice, const std::vector<int>& stats)
+void CharacterSheet::setCharacterClass()
 {
-    switch (classMenuChoice)
+
+    int classMenuChoice{};
+    bool choosingClass = true;
+    while (choosingClass)
     {
-        case 1:
-            if (stats.at(2) >= 9) {
-                m_characterClass = "Cleric";
-            }
-            else {
-                std::cout << "Your Wisdom is not high enough for Cleric\n";
-            }
-            break;
-        case 2:
-            if (stats.at(0) >= 9) {
-               m_characterClass = "Fighter";
-            }
-            else {
-                std::cout << "Your Strength is not high enough for Fighter\n";
-            }
-            break;
-        case 3:
-            if (stats.at(1) >=9) {
-               m_characterClass = "Magic-User";
-            }
-            else {
-                std::cout << "Your Intelligence is not high enough for Magic-User\n";
-            }
-            break;
-        case 4:
-            if (stats.at(3) >= 9) {
-               m_characterClass = "Theif";
-            }
-            else {
-                std::cout << "Your Dexterity is not high enough for Theif\n";
-            }
-            break;
+        displayStats();
+        std::cout << "Please choose a class \n";
+        std::cout << "1. Cleric\n";
+        std::cout << "2. Fighter\n";
+        std::cout << "3. Magic-User\n";
+        std::cout << "4. Theif\n";
+        std::cout << "5. Finish Choosing.\n";
+
+        std::cin >> classMenuChoice;
+    
+        switch (classMenuChoice)
+        {
+            case 1:
+                if (m_characterStats.at(2) >= 9) {
+                    m_characterClass = "Cleric";
+                }
+                else {
+                    std::cout << "Your Wisdom is not high enough for Cleric\n";
+                }
+                break;
+            case 2:
+                if (m_characterStats.at(0) >= 9) {
+                   m_characterClass = "Fighter";
+                }
+                else {
+                    std::cout << "Your Strength is not high enough for Fighter\n";
+                }
+                break;
+            case 3:
+                if (m_characterStats.at(1) >=9) {
+                   m_characterClass = "Magic-User";
+                }
+                else {
+                    std::cout << "Your Intelligence is not high enough for Magic-User\n";
+                }
+                break;
+            case 4:
+                if (m_characterStats.at(3) >= 9) {
+                   m_characterClass = "Theif";
+                }
+                else {
+                    std::cout << "Your Dexterity is not high enough for Theif\n";
+                }
+                break;
+            case 5:
+               choosingClass = false;
+                break;
+        }
     }
+    std::cout << "Your Class is " << m_characterClass << "\n";
     
 }
 
