@@ -66,6 +66,8 @@ void CharacterSheet::setCharacterClass()
                     std::cout << "You have chosen Cleric\n";
                     CharacterSheet::confirmation(choosingClass);
 
+                    m_savingThrows = {11, 12, 14, 16, 15}
+
                     m_characterClass = "Cleric";
                 }
                 else {
@@ -77,6 +79,8 @@ void CharacterSheet::setCharacterClass()
                 if (m_characterStats.at(0) >= 9) {
                     std::cout << "You have chosen Fighter\n";
                     CharacterSheet::confirmation(choosingClass);
+
+                    m_savingThrows = {12, 13, 14, 15, 17}
 
                     m_characterClass = "Fighter";
                 }
@@ -90,6 +94,8 @@ void CharacterSheet::setCharacterClass()
                     std::cout << "You have chosen Magic-User\n";
                     CharacterSheet::confirmation(choosingClass);
 
+                    m_savingThrows = {13, 14, 13, 16, 15}
+
                     m_characterClass = "Magic-User";
                 }
                 else {
@@ -101,6 +107,8 @@ void CharacterSheet::setCharacterClass()
                 if (m_characterStats.at(3) >= 9) {
                     std::cout << "You have chosen Theif\n";
                     CharacterSheet::confirmation(choosingClass);
+
+                    m_savingThrows = {13, 14, 13, 16, 15}
                     m_characterClass = "Theif";
                 }
                 else {
@@ -142,6 +150,12 @@ void CharacterSheet::setCharacterRace()
                     std::cout << "You have chosen Dwarf\n";
                     CharacterSheet::confirmation(choosingRace);
 
+                    m_savingThrows.at(0) -= 4;
+                    m_savingThrows.at(1) -= 4;
+                    m_savingThrows.at(2) -= 4;
+                    m_savingThrows.at(3) -= 3;
+                    m_savingThrows.at(4) -= 4;
+
                     m_characterRace = "Dwarf";
                 }
                 else {
@@ -155,6 +169,10 @@ void CharacterSheet::setCharacterRace()
                 {
                     std::cout << "You have chosen Elf\n";
                     CharacterSheet::confirmation(choosingRace);
+
+                    m_savingThrows.at(2) -= 1;
+                    m_savingThrows.at(1) -= 2;
+                    m_savingThrows.at(4) -= 2;
 
                     m_characterRace = "Elf";
                 }
@@ -170,6 +188,12 @@ void CharacterSheet::setCharacterRace()
                 {
                     std::cout << "You have chosen Halfling\n";
                     CharacterSheet::confirmation(choosingRace);
+
+                    m_savingThrows.at(0) -= 4;
+                    m_savingThrows.at(1) -= 4;
+                    m_savingThrows.at(2) -= 4;
+                    m_savingThrows.at(3) -= 3;
+                    m_savingThrows.at(4) -= 4;
 
                     m_characterRace = "Halfling";
                 }
