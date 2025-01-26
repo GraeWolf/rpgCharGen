@@ -7,7 +7,7 @@
 #include <functional>
 #include "rcg_tools.hpp"
 
-class CharacterSheet
+class CharacterSheet: public RCG_Tools
 {
 private:
     std::vector<int> m_characterStats {};
@@ -24,11 +24,11 @@ private:
     int m_attackBonus{};
     int m_money{};
 public:
-    void setCharacterStats(const std::vector<int>& stats);
+    void setCharacterStats();
     void setSavingThrows();
-    void setStatModifiers(const std::vector<int>& stats);
+    void setStatModifiers();
 
-    void setCharacterName(std::string name);
+    void setCharacterName();
     void setCharacterClass();
     void setCharacterRace();
 
@@ -41,6 +41,7 @@ public:
     std::vector<int> getStatModifiers();
     std::string getCharacterClass();
     std::vector<int> getCharacterStats();
+    std::string getCharacterName();
 
     void displayStats();
     void confirmation(bool& choice);

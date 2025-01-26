@@ -1,8 +1,8 @@
 #include "character_sheet.hpp"
 
-void CharacterSheet::setCharacterStats(const std::vector<int>& stats)
+void CharacterSheet::setCharacterStats()
 {
-    m_characterStats = stats;
+    m_characterStats = RCG_Tools::stat_generator();
 }
 
 void CharacterSheet::setSavingThrows()
@@ -10,26 +10,26 @@ void CharacterSheet::setSavingThrows()
 
 }
 
-void CharacterSheet::setStatModifiers(const std::vector<int>& stats)
+void CharacterSheet::setStatModifiers()
 {
-    for (size_t i{}; i < stats.size(); ++i)
+    for (size_t i{}; i < m_characterStats.size(); ++i)
     {
-        if (stats.at(i) == 18) {
+        if (m_characterStats.at(i) == 18) {
             m_statModifiers.at(i) = 3;
         }
-        else if (stats.at(i) > 15 && stats.at(i) < 18) {
+        else if (m_characterStats.at(i) > 15 && m_characterStats.at(i) < 18) {
             m_statModifiers.at(i) = 2;
         }
-        else if (stats.at(i) > 12 && stats.at(i) < 16) {
+        else if (m_characterStats.at(i) > 12 && m_characterStats.at(i) < 16) {
             m_statModifiers.at(i) = 1;
         }
-        else if (stats.at(i) > 8 && stats.at(i) < 13) {
+        else if (m_characterStats.at(i) > 8 && m_characterStats.at(i) < 13) {
             m_statModifiers.at(i) = 0;
         }
-        else if (stats.at(i) > 5 && stats.at(i) < 9) {
+        else if (m_characterStats.at(i) > 5 && m_characterStats.at(i) < 9) {
             m_statModifiers.at(i) = -1; 
         }
-        else if (stats.at(i) > 3 && stats.at(i) < 6) {
+        else if (m_characterStats.at(i) > 3 && m_characterStats.at(i) < 6) {
             m_statModifiers.at(i) = -2;    
         }
         else {
@@ -38,9 +38,18 @@ void CharacterSheet::setStatModifiers(const std::vector<int>& stats)
     }
 }
 
-void CharacterSheet::setCharacterName(std::string name)
+void CharacterSheet::setCharacterName()
 {
-    m_characterName = name;
+    bool choosingName = true;
+
+    while (choosingName)
+    {
+        std::cout << "Please enter a name for your character. \n";
+        std::string name{};
+        std::getline(std::cin >> std::ws, name);
+        CharacterSheet::confirmation(choosingName);
+        m_characterName = name;
+    }
 }
 
 void CharacterSheet::setCharacterClass()
@@ -66,7 +75,7 @@ void CharacterSheet::setCharacterClass()
                     std::cout << "You have chosen Cleric\n";
                     CharacterSheet::confirmation(choosingClass);
 
-                    m_savingThrows = {11, 12, 14, 16, 15}
+                    m_savingThrows = {11, 12, 14, 16, 15};
 
                     m_characterClass = "Cleric";
                 }
@@ -80,7 +89,7 @@ void CharacterSheet::setCharacterClass()
                     std::cout << "You have chosen Fighter\n";
                     CharacterSheet::confirmation(choosingClass);
 
-                    m_savingThrows = {12, 13, 14, 15, 17}
+                    m_savingThrows = {12, 13, 14, 15, 17};
 
                     m_characterClass = "Fighter";
                 }
@@ -94,7 +103,7 @@ void CharacterSheet::setCharacterClass()
                     std::cout << "You have chosen Magic-User\n";
                     CharacterSheet::confirmation(choosingClass);
 
-                    m_savingThrows = {13, 14, 13, 16, 15}
+                    m_savingThrows = {13, 14, 13, 16, 15};
 
                     m_characterClass = "Magic-User";
                 }
@@ -108,7 +117,7 @@ void CharacterSheet::setCharacterClass()
                     std::cout << "You have chosen Theif\n";
                     CharacterSheet::confirmation(choosingClass);
 
-                    m_savingThrows = {13, 14, 13, 16, 15}
+                    m_savingThrows = {13, 14, 13, 16, 15};
                     m_characterClass = "Theif";
                 }
                 else {
@@ -228,25 +237,25 @@ void CharacterSheet::setHitPoints()
 {
     if (m_characterClass == "Cleric")
     {
-        m_hitPoints = RCG_Tools::roll(1, 6) + m_statModifiers.at(4);
+        m_hitPoints = RCG_Tools::roll(six) + m_statModifiers.at(4);
         if (m_hitPoints < 0)
             m_hitPoints = 1;
     }
     else if (m_characterClass == "Fighter")
     {
-        m_hitPoints = RCG_Tools::roll(1, 8) + m_statModifiers.at(4);
+        m_hitPoints = RCG_Tools::roll(eight) + m_statModifiers.at(4);
         if (m_hitPoints < 0)
             m_hitPoints = 1;
     }
     else if (m_characterClass == "Magic-User")
     {
-        m_hitPoints = RCG_Tools::roll(1, 4) + m_statModifiers.at(4);
+        m_hitPoints = RCG_Tools::roll(four) + m_statModifiers.at(4);
         if (m_hitPoints < 0)
             m_hitPoints = 1;
     }
     else if (m_characterClass == "Theif")
     {
-        m_hitPoints = RCG_Tools::roll(1, 4) + m_statModifiers.at(4);
+        m_hitPoints = RCG_Tools::roll(four) + m_statModifiers.at(4);
         if (m_hitPoints < 0)
             m_hitPoints = 1;
     }
@@ -258,7 +267,7 @@ void CharacterSheet::setAttackBonus()
 
 void CharacterSheet::setMoney()
 {
-    m_money = (RCG_Tools::roll(1, 6) + RCG_Tools::roll(1, 6) + RCG_Tools::roll(1, 6)) * 10;
+    m_money = (RCG_Tools::roll(six) + RCG_Tools::roll(six) + RCG_Tools::roll(six)) * 10;
 }
 
 std::vector<int> CharacterSheet::getStatModifiers() 
@@ -274,6 +283,11 @@ std::string CharacterSheet::getCharacterClass()
 std::vector<int> CharacterSheet::getCharacterStats()
 {
     return m_characterStats;
+}
+
+std::string CharacterSheet::getCharacterName()
+{
+    return m_characterName;
 }
 
 void CharacterSheet::displayStats()

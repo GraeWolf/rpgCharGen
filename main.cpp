@@ -6,7 +6,7 @@
 int main()
 {
 
-    RCG_Tools tools;
+    //RCG_Tools tools;
     CharacterSheet player;
     bool isRunning = true;
     while (isRunning)
@@ -22,11 +22,12 @@ int main()
         {
             case 1:
                 {
-                    player.setCharacterStats(tools.stat_generator());
-                    player.setStatModifiers(player.getCharacterStats());
-                    player.setCharacterClass();
-                    player.setCharacterRace();
-                    
+                    /*player.setCharacterStats();*/
+                    /*player.setStatModifiers();*/
+                    /*player.setCharacterClass();*/
+                    /*player.setCharacterRace();*/
+                    player.setCharacterName();
+                    std::cout << player.getCharacterName();
 
                     break;
                 }
