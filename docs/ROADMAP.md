@@ -11,20 +11,22 @@ Grok coaches; **you write the code** unless you explicitly ask for a solution.
 
 **Goal:** You can create a tiny C++ program, build it with CMake, and run it.
 
-- [ ] Confirm tools installed: `g++` (or clang++), `cmake`, and a generator (`ninja` or `make`)
-- [ ] Create a minimal repo layout: `src/main.cpp`, root `CMakeLists.txt`, `README.md`
-- [ ] CMake: set C++17, one executable target, out-of-source `build/`
-- [ ] Program prints a hello / placeholder line (proves the toolchain)
-- [ ] You can explain in your own words: source file → object file → executable
-- [ ] Optional: first git commit once hello-build works
+- [x] Confirm tools installed: `g++` (or clang++), `cmake`, and a generator (`ninja` or `make`)
+- [x] Create a minimal repo layout: `src/main.cpp`, root `CMakeLists.txt`, `README.md`
+- [x] CMake: C++ standard set, one executable target (`bf_chargen`), out-of-source `build/`
+- [x] Program prints a hello / placeholder line (proves the toolchain)
+- [x] Mental model: source file → object file → executable (covered in coaching)
+- [x] `.gitignore` ignores `build/`; first git commit done
 
-**Success:** `cmake -S . -B build && cmake --build build` produces a binary you can run.
+**Success:** `cmake -S . -B build && cmake --build build` produces a binary you can run. **Done.**
 
 **Concepts:** translation unit, linker, build directory, project vs target in CMake.
 
+**Notes:** Project currently uses **C++23** in `CMakeLists.txt` (fine with GCC 14). Generator: Ninja recommended.
+
 ---
 
-## Phase 1 — Dice and ability scores
+## Phase 1 — Dice and ability scores  ← **current**
 
 **Goal:** Reliable randomness for classic rolls; model six abilities.
 

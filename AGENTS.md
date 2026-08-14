@@ -23,7 +23,7 @@ This repository is a **C++ learning project**. The human owns the code. Grok is 
 
 | Topic | Choice | Rationale |
 |-------|--------|-----------|
-| Language | C++17 (or C++20 if human prefers later) | Modern enough, widely documented |
+| Language | **C++23** (as set in `CMakeLists.txt`) | Human chose 23; GCC 14 supports it |
 | Build | **CMake** + Ninja or Make | Industry-common; grows with multi-file projects |
 | UI (MVP) | **CLI only** | Focus on language and design, not UI frameworks |
 | Rules data (MVP) | **Hardcoded** tables/constants in C++ | Learn types and organization first |
@@ -169,9 +169,6 @@ cmake --build build
 
 ## Current focus
 
-Until `docs/ROADMAP.md` says otherwise:
-
-1. Finish project setup understanding (git, folders, CMake hello world)
-2. Then MVP random CLI character—slice by slice per roadmap
+**Phase 1** — dice and ability scores (see `docs/ROADMAP.md`).
 
 If the human says **“what should I do next?”**, answer from the roadmap’s first incomplete checkbox and stay on that item.

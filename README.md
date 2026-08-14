@@ -6,22 +6,33 @@ You write the code. Project coaching rules for AI assistants live in [`AGENTS.md
 
 ## Status
 
-**Not built yet.** Phase 0 of the roadmap is setting up CMake and a hello-world executable.
+**Phase 0 complete** — CMake toolchain works; hello-world binary `bf_chargen`.  
+**Next:** Phase 1 (dice and ability scores) — see [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
-## Requirements (planned)
+## Requirements
 
-- C++17 compiler (`g++` or `clang++`)
-- CMake 3.16+ (exact minimum TBD when you write `CMakeLists.txt`)
-- Make or Ninja
+- C++ compiler with C++23 support (`g++` 14+ works)
+- CMake 3.16+
+- Ninja (recommended) or Make
 
-## Build & run (placeholder)
+## Build & run
 
-After Phase 0 exists, this section should look like:
+From the repository root:
 
 ```bash
-cmake -S . -B build
+cmake -S . -B build -G Ninja
 cmake --build build
-./build/<executable-name>
+./build/bf_chargen
+```
+
+Reconfigure only when `CMakeLists.txt` changes. After editing `.cpp` files, `cmake --build build` is enough.
+
+With Make instead of Ninja:
+
+```bash
+cmake -S . -B build -G "Unix Makefiles"
+cmake --build build
+./build/bf_chargen
 ```
 
 ## License / rules
