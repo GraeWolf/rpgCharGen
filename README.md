@@ -6,8 +6,8 @@ You write the code. Project coaching rules for AI assistants live in [`AGENTS.md
 
 ## Status
 
-**Phase 0 complete** — CMake toolchain works; hello-world binary `bf_chargen`.  
-**Next:** Phase 1 (dice and ability scores) — see [`docs/ROADMAP.md`](docs/ROADMAP.md).
+**Phase 0–1 complete** — CMake toolchain + 3d6 ability scores with modifiers.  
+**Next:** Phase 2 (races/classes) — see [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
 ## Requirements
 

@@ -169,6 +169,6 @@ cmake --build build
 
 ## Current focus
 
-**Phase 1** — dice and ability scores (see `docs/ROADMAP.md`).
+**Phase 2** — hardcoded race/class rules data (see `docs/ROADMAP.md`).
 
 If the human says **“what should I do next?”**, answer from the roadmap’s first incomplete checkbox and stay on that item.

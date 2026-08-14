@@ -26,24 +26,26 @@ Grok coaches; **you write the code** unless you explicitly ask for a solution.
 
 ---
 
-## Phase 1 — Dice and ability scores  ← **current**
+## Phase 1 — Dice and ability scores
 
 **Goal:** Reliable randomness for classic rolls; model six abilities.
 
-- [ ] Decide ability roll method for MVP (default recommendation: **3d6 down the line**)
-- [ ] Implement `d6` / `roll_3d6` (or equivalent) as free functions
-- [ ] Represent abilities (struct or array + clear names: STR DEX CON INT WIS CHA)
-- [ ] Compute ability **modifiers** per BFRPG
-- [ ] CLI: print a set of rolled scores and modifiers
-- [ ] Discuss with coach: why struct vs six loose variables vs `std::array`
+- [x] Decide ability roll method for MVP: **3d6 down the line**
+- [x] Implement `d6` / `roll_3d6` as free functions (`std::mt19937` + `<random>`)
+- [x] Represent abilities with `struct AbilityScores` (named members)
+- [x] Compute ability **modifiers** per BFRPG table
+- [x] CLI: print scores and modifiers
+- [x] Design choice: struct + free functions (not class, not six loose vars)
 
-**Success:** Running the program shows six scores and their modifiers; re-runs differ (seed policy documented).
+**Success:** Running the program shows six scores and their modifiers; re-runs differ. **Done.**
 
-**Concepts:** functions, headers (when you split files), `<random>` vs `rand()`, data grouping with struct.
+**Concepts:** functions, `<random>` vs `rand()`, data grouping with struct, pass-by-value vs reference for simple ints.
+
+**Notes:** Seed from `std::random_device` each run. C++23 `std::println` used for output.
 
 ---
 
-## Phase 2 — Rules data: races and classes (hardcoded)
+## Phase 2 — Rules data: races and classes (hardcoded)  ← **current**
 
 **Goal:** Encode enough BFRPG race/class rules to validate a character.
 
