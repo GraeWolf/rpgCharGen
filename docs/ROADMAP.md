@@ -49,7 +49,7 @@ Grok coaches; **you write the code** unless you explicitly ask for a solution.
 
 **Goal:** Encode enough BFRPG race/class rules to validate a character.
 
-- [ ] List races and classes you will support in MVP (subset OK if documented)
+- [x] List races and classes for MVP: **core four** (Human/Elf/Dwarf/Halfling + Fighter/Cleric/Magic-User/Thief)
 - [ ] Hardcode race data: ability adjustments, restrictions, any special notes you need
 - [ ] Hardcode class data: prime requisite / minimums, hit die, allowed races if applicable
 - [ ] Use `enum class` for race/class ids where it helps
